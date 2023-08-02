@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cuprum:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    
+    <title> CORE </title>
+  </head>
+  <body>
+  <div class="background-image"> </div>
+    <script>
+      function scrollToSection(sectionId) {
+          const section = document.getElementById(sectionId);
+          section.scrollIntoView({ behavior: "smooth" });
+      }
+
+
+      // Function to handle the fade-in effect
+      function fadeIn(element) {
+            let opacity = 0;
+            const targetOpacity = 1;
+            const duration = 1000; // Animation duration in milliseconds
+
+            const interval = 10; // Time between each animation step in milliseconds
+            const steps = duration / interval;
+
+            const stepOpacity = (targetOpacity - opacity) / steps;
+
+            const fadeInInterval = setInterval(function() {
+                opacity += stepOpacity;
+                element.style.opacity = opacity;
+
+                if (opacity >= targetOpacity) {
+                    element.style.opacity = targetOpacity;
+                    clearInterval(fadeInInterval);
+                }
+            }, interval);
+        }
+
+        // Function to handle the Intersection Observer
+        function handleIntersection(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    fadeIn(entry.target);
+                    observer.unobserve(entry.target); // Unobserve the section once it's faded in
+                }
+            });
+        }
+
+        const sections = document.querySelectorAll('section');
+
+        // Set up the Intersection Observer
+        const options = {
+            threshold: 0.3 // Adjust this threshold to control when the animation triggers
+        };
+
+        const observer = new IntersectionObserver(handleIntersection, options);
+
+        // Observe each section
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+
+  </script>
+
+    <nav class="section__container nav__container">
+      <div class="nav__logo">CORE</div>
+      <ul class="nav__links">
+        <li class="link"><a href="#"></a></li>
+        <li class="link"><a href="#"></a></li>
+      </ul>
+    </nav>
+    <header class="section__container header__container">
+      <h1 class="section__header">
+        Secure your,<br />
+         <span>Future.</span>
+      </h1>
+      <p>
+        
+        Our focus is providing you private income and equity solutions that are passive , diverse and customized to your needs. Adopt the stratergies of the large successfull institutions customized to your wealth objectives. See our intro video below
+
+      </p>
+
+      
+      <div class="video_container">
+        <iframe class="responsive-iframe"
+          
+        width="684" height="385" src="https://www.youtube.com/embed/p0cVbCxoANE"
+         title="Core Intro Video #privatelending #alternativeinvestments #realestateinvesting" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+          gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+        </iframe>
+      </div>
+      
+        <button class="learn-more-btn" onclick="scrollToSection('section2')">Learn More</button>
+      
+      <form id ="form_two">
+        <form action="https://formspree.io/f/mdorkdok" method="POST">
+          <label>
+            <input type="email" name="email" placeholder="Email" required>
+          </label>
+          <button type="submit">Send</button>
+        </form>
+      </form>
+    </header>
+
+    
+
+
+  <section id="section2" >  
+
+    <p class="section__subheader"></p>
+      <h2 class="section__header">Start Your Wealth Building Journey Today</h2>
+
+
+
+  
+    <form id="form">
+ 
+      <!-- Details -->
+      <div class="form-control">
+          <label for="name" id="label-name">
+              Name
+          </label>
+
+          <!-- Input Type Text -->
+          <input type="text"
+                 id="name"
+                 placeholder="Enter your name" />
+      </div>
+
+      <div class="form-control">
+          <label for="email" id="label-email">
+              Email
+          </label>
+
+          <!-- Input Type Email-->
+          <input type="email"
+                 id="email"
+                 placeholder="Enter your email" />
+      </div>
+
+      
+
+      <div class="form-control">
+          
+      </div>
+
+      <div class="form-control">
+         
+      </div>
+
+      <div class="form-control">
+          <label>Discover Your Optimal Wealth Building Strategy:  Which of the following approaches have you leveraged to maximize returns ? Select all that apply.
+              <small>(Check all that apply)</small>
+          </label>
+          <!-- Input Type Checkbox -->
+          <label for="inp-1">
+              <input type="checkbox"
+                     name="inp">Invests in your specific niche (your company, service or product niche)</input></label>
+          <label for="inp-2">
+              <input type="checkbox"
+                     name="inp">Invests in your sector (ex: healthcare, mining, IT)</input></label>
+          <label for="inp-3">
+              <input type="checkbox"
+                     name="inp">Source your own investments</input></label>
+          <label for="inp-4">
+              <input type="checkbox"
+                     name="inp">Work with advisory/finance institutions to source investments</input></label>
+          <label for="inp-5">
+              <input type="checkbox"
+                     name="inp">Invests in public markets</input></label>
+          <label for="inp-6">
+              <input type="checkbox"
+                     name="inp">Invests in private markets</input></label>
+          <label for="inp-7">
+              <input type="checkbox"
+                     name="inp">Invests for cash flow - dividend / fixed income</input></label>
+          <label for="inp-7">
+              <input type="checkbox"
+                     name="inp">Invests for growth / equity / no cash flow</input></label>
+          <label for="inp-7">
+              <input type="checkbox"
+                     name="inp">None of the Above</input></label>
+         
+      </div>
+  </section>
+
+      
+
+          <!-- multi-line text input control -->
+          
+      </div>
+
+      <!-- Multi-line Text Input Control -->
+      <button type="submit" value="submit">
+          Submit
+      </button>
+    </form>
+  </section>  
+
+    <section class="section__container template__container">
+      <div class="template__content">
+        <p class="section__subheader"></p>
+        <h2 class="section__header">For a Discovery Call</h2>
+        <p class="description">
+          
+        </p>
+
+        <div class="calendly-card">
+          <a class="calendly-link" href="https://calendly.com/david_cmac">Book Me</a>
+        </div>
+
+      </div>
+      <div class="template__image">
+        <img src="assets/template.jpg" alt="template" />
+      </div>
+    </section>
+
+    
+    
+
+    <footer class="section__container footer__container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <h4></h4>
+          <p>
+            <span><i class="ri-mail-fill"></i></span> david@coreadvisory.ca
+          </p>
+          
+        </div>
+        <div class="footer__col">
+          <h4>About</h4>
+          <p>Home</p>
+          <p>Pricing</p>
+          <p>Company</p>
+          <p>Resource</p>
+        </div>
+        <div class="footer__col">
+          <h4>Features</h4>
+          <p>Blog</p>
+          <p>Privacy Policy</p>
+          <p>Terms & Conditions</p>
+        </div>
+      </div>
+    </footer>
+    <div class="section__container footer__bar">
+      <p>Copyright © 2023 CORE. All rights reserved.</p>
+      <div class="socials">
+        <span><i class="ri-facebook-fill"></i></span>
+        <span><i class="ri-twitter-fill"></i></span>
+        <span><i class="ri-instagram-line"></i></span>
+        <span><i class="ri-youtube-fill"></i></span>
+      </div>
+    </div>
+
+    <script>
+      const questionBox = document.getElementsByClassName("question__box");
+
+      for (let i = 0; i < questionBox.length; i++) {
+        questionBox[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+        });
+      }
+    </script>
+  </body>
+</html>
